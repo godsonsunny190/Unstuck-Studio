@@ -1,0 +1,181 @@
+.header {
+    padding: 1.9rem 0;
+    position: relative;
+    z-index: 99;
+
+    &::after {
+        content: "";
+        background-color: $secondery-clr;
+        height: .7rem;
+        width: 100%;
+        border-radius: 0 0 2rem 2rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    &_logo {
+        img {
+            @media (max-width: 575.98px) {
+                width: 15rem;
+            }
+        }
+    }
+
+
+    &_wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &_links {
+        .dropdown-toggler {
+            &::after {
+                margin-left: 8px;
+                content: "";
+                border-top: 0.3em solid #024059;
+                border-right: 0.3em solid transparent;
+                border-bottom: 0;
+                border-left: 0.3em solid transparent;
+                position: absolute;
+                top: 12px;
+
+                @media (max-width: 991.98px) {
+                    border-top: 0.3em solid #ffffff;
+                }
+            }
+
+            &:hover> {
+                .dropdown {
+                    opacity: 1;
+                    transform: translateY(0px);
+                    transition: .3s all ease;
+                    pointer-events: all;
+                }
+            }
+        }
+
+        .dropdown {
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            padding-top: 1rem;
+            z-index: 2;
+            transform: translateY(20px);
+            transition: .3s all ease;
+            pointer-events: none;
+
+            ul {
+                flex-direction: column;
+                padding: 2rem;
+                border-radius: 2rem;
+                background-color: $white-clr;
+                width: 20rem;
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+                li {
+                    &:not(:last-child) {
+                        padding-bottom: 1rem;
+                        margin-bottom: 1rem;
+                    }
+                }
+
+            }
+        }
+
+        ul {
+            display: flex;
+            column-gap: 4.4rem;
+
+            @media (max-width: 1199.98px) {
+                column-gap: 2.2rem;
+            }
+
+            @media (max-width: 991.98px) {
+                flex-direction: column;
+                margin-top: 2rem;
+            }
+
+            li {
+                position: relative;
+
+                @media (max-width: 991.98px) {
+                    &:not(:last-child) {
+                        margin-bottom: 1rem;
+                        padding-bottom: 1rem;
+                    }
+                }
+
+                a {
+                    color: $primary-clr;
+                    font-size: 1.8rem;
+                    font-weight: bold;
+                    transition: .3s all ease;
+                    position: relative;
+                    padding-bottom: 0.4rem;
+
+                    @media (max-width: 991.98px) {
+                        color: $white-clr;
+                        font-size: 1.6rem;
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        transform: scaleX(0);
+                        border-radius: 5px;
+                        height: 2px;
+                        bottom: 0;
+                        left: 0;
+                        background: $secondery-clr;
+                        transform-origin: bottom right;
+                        transition: transform 0.25s ease-out;
+                    }
+
+                    &:hover {
+                        color: $secondery-clr;
+
+                        &::after {
+                            transform: scaleX(1);
+                            transform-origin: bottom left;
+                            color: $secondery-clr;
+                            height: 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.navbar {
+    &-toggler {
+        img {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+    }
+}
+
+.offcanvas {
+    @media (max-width: 575.98px) {
+        width: 100% !important;
+        border: none !important;
+    }
+
+    &-body {
+        margin-left: auto;
+
+        @media (max-width: 991.98px) {
+            margin-left: 0;
+        }
+    }
+
+    &-header {
+        .btn-close {
+            opacity: 1;
+        }
+    }
+}
